@@ -37,8 +37,8 @@ namespace Platformer.Mechanics
 
         bool jump;
         Vector2 move;
-        SpriteRenderer spriteRenderer;
-        internal Animator animator;
+        /*SpriteRenderer spriteRenderer;
+        internal Animator animator;*/
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         private InputAction m_MoveAction;
@@ -51,8 +51,8 @@ namespace Platformer.Mechanics
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            animator = GetComponent<Animator>();
+            /*spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();*/
 
             m_MoveAction = InputSystem.actions.FindAction("Player/Move");
             m_JumpAction = InputSystem.actions.FindAction("Player/Jump");
@@ -128,13 +128,13 @@ namespace Platformer.Mechanics
                 }
             }
 
-            if (move.x > 0.01f)
+            /*if (move.x > 0.01f)
                 spriteRenderer.flipX = false;
             else if (move.x < -0.01f)
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = true;*/
 
-            animator.SetBool("grounded", IsGrounded);
-            animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+            /*animator.SetBool("grounded", IsGrounded);
+            animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);*/
 
             targetVelocity = move * maxSpeed;
         }
