@@ -29,7 +29,7 @@ namespace Platformer.Mechanics
         public float jumpTakeOffSpeed = 7;
 
         public JumpState jumpState = JumpState.Grounded;
-        private bool stopJump;
+        //private bool stopJump;
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
@@ -70,7 +70,7 @@ namespace Platformer.Mechanics
                     jumpState = JumpState.PrepareToJump;
                 else if (m_JumpAction.WasReleasedThisFrame())
                 {
-                    stopJump = true;
+                    //stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
                 }
             }
@@ -90,7 +90,7 @@ namespace Platformer.Mechanics
                 case JumpState.PrepareToJump:
                     jumpState = JumpState.Jumping;
                     jump = true;
-                    stopJump = false;
+                    //stopJump = false;
                     break;
                 case JumpState.Jumping:
                     if (!IsGrounded)
@@ -119,14 +119,14 @@ namespace Platformer.Mechanics
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                 jump = false;
             }
-            else if (stopJump)
-            {
-                stopJump = false;
-                if (velocity.y > 0)
-                {
-                    velocity.y = velocity.y * model.jumpDeceleration;
-                }
-            }
+            //else if (stopJump)
+            //{
+            //    stopJump = false;
+            //    if (velocity.y > 0)
+            //    {
+            //        velocity.y = velocity.y * model.jumpDeceleration;
+            //    }
+            //}
 
             /*if (move.x > 0.01f)
                 spriteRenderer.flipX = false;
